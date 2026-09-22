@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy 20th Birthday, My Love! 🌻</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Poppins and Playfair Display -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Tailwind Configuration for Custom Greens -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        sage: {
+                            50: '#f4f7f4',
+                            100: '#e5eae5',
+                            200: '#cbd5cb',
+                            300: '#a3b4a3',
+                            400: '#799179',
+                            500: '#587358',
+                            600: '#435a43',
+                            700: '#364836',
+                            800: '#2d3b2d',
+                            900: '#263126',
+                        },
+                        sunflower: {
+                            light: '#fff2b2',
+                            DEFAULT: '#facc15',
+                            dark: '#ca8a04',
+                            deep: '#854d0e'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4f7f4;
+            color: #2d3b2d;
+            overflow-x: hidden;
+        }
+        /* Floating petals / sunflowers animation */
+        @keyframes floatPetal {
+            0% { transform: translateY(-10vh) translateX(0) rotate(0deg); opacity: 0; }
+            20% { opacity: 0.8; }
+            100% { transform: translateY(110vh) translateX(50px) rotate(360deg); opacity: 0; }
+        }
+        .floating-element {
+            position: fixed;
+            top: -10vh;
+            z-index: 40;
+            user-select: none;
+            pointer-events: none;
+            animation: floatPetal linear infinite;
+        }
+        /* Polaroid tilt effects */
+        .polaroid {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .polaroid:hover {
+            transform: translateY(-8px) rotate(0deg) scale(1.02);
+            box-shadow: 0 20px 25px -5px rgba(54, 72, 54, 0.15), 0 10px 10px -5px rgba(54, 72, 54, 0.1);
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #e5eae5;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #799179;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #587358;
+        }
+    </style>
+</head>
+<body class="bg-sage-50 text-sage-800 antialiased selection:bg-sunflower selection:text-sage-900">
+
+    <!-- Floating elements container -->
+    <div id="floating-container" class="absolute inset-0 overflow-hidden pointer-events-none"></div>
+
+    <!-- Navigation Bar -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-white/85 backdrop-blur-md border-b border-sage-200 transition-all duration-300">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="#hero" class="flex items-center gap-2 group">
+                <span class="text-2xl text-sunflower transition-transform duration-300 group-hover:rotate-45">🌻</span>
+                <span class="font-serif font-bold text-xl sm:text-2xl text-sage-800 tracking-tight">For My Love</span>
+            </a>
+            <nav class="hidden md:flex items-center gap-8 font-medium text-sm text-sage-700">
+                <a href="#songs" class="hover:text-sage-500 transition-colors">Our Songs</a>
+                <a href="#memories" class="hover:text-sage-500 transition-colors">Memories</a>
+                <a href="#messages" class="hover:text-sage-500 transition-colors">20 Messages</a>
+            </nav>
+            <button onclick="document.getElementById('messages').scrollIntoView({behavior: 'smooth'})" class="bg-sage-600 hover:bg-sage-700 text-white px-5 py-2.5 rounded-full text-sm font-medium shadow-md hover:shadow-lg transition-all flex items-center gap-2">
+                <i class="fa-solid fa-gift text-sunflower"></i> Open 20th Bday
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" class="relative min-h-screen flex items-center justify-center pt-20 pb-16 px-4 overflow-hidden bg-gradient-to-b from-sage-100 via-sage-50 to-sage-50">
+        <div class="absolute -top-24 -left-24 w-96 h-96 bg-sage-200/50 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute bottom-0 right-0 w-96 h-96 bg-sunflower-light/40 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-4xl mx-auto text-center relative z-10">
+            <div class="inline-flex items-center gap-2 bg-white/90 border border-sage-200 px-4 py-1.5 rounded-full text-sage-700 text-xs sm:text-sm font-semibold mb-6 shadow-sm animate-bounce">
+                <span>🌻</span> Celebrating Two Decades of You <span>🌻</span>
+            </div>
+            
+            <h1 class="font-serif text-4xl sm:text-6xl lg:text-7xl font-bold text-sage-900 tracking-tight mb-6">
+                Happy 20th Birthday, <br><span class="text-sage-600 italic">My Absolute Everything</span>
+            </h1>
+            
+            <p class="text-base sm:text-xl text-sage-700 max-w-2xl mx-auto mb-10 leading-relaxed font-light">
+                Hi baby!! Happy 20th Birthday, mahal ko. Here's a little gift I made for you hehe. I hope you like it, babyyyy! I love you so sooooo much!!!!
+            </p>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#messages" class="w-full sm:w-auto bg-sage-700 hover:bg-sage-800 text-white font-medium px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all flex items-center justify-center gap-3 group">
+                    <span>Read 20 Birthday Messages</span>
+                    <i class="fa-solid fa-arrow-down group-hover:translate-y-1 transition-transform"></i>
+                </a>
+                <a href="#memories" class="w-full sm:w-auto bg-white hover:bg-sage-100 text-sage-800 border border-sage-300 font-medium px-8 py-4 rounded-xl shadow-sm hover:shadow transition-all flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-camera-retro text-sage-600"></i> View Our Memories
+                </a>
+            </div>
+
+            <div class="mt-16 grid grid-cols-3 gap-4 max-w-lg mx-auto border-t border-sage-200/80 pt-8 text-center">
+                <div>
+                    <div class="font-serif font-bold text-2xl text-sage-900">20</div>
+                    <div class="text-xs text-sage-600 font-medium">Years of Sunshine</div>
+                </div>
+                <div>
+                    <div class="font-serif font-bold text-2xl text-sage-900">∞</div>
+                    <div class="text-xs text-sage-600 font-medium">Roblox Dates</div>
+                </div>
+                <div>
+                    <div class="font-serif font-bold text-2xl text-sage-900">1</div>
+                    <div class="text-xs text-sage-600 font-medium">Special Girl</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 1: Top 5 Songs That Remind Me of You -->
+    <section id="songs" class="py-20 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
+        <div class="text-center mb-16">
+            <span class="text-sunflower-dark text-xl">🎵</span>
+            <h2 class="font-serif text-3xl sm:text-4xl font-bold text-sage-900 mt-2">Top 5 Songs That Remind Me of You</h2>
+            <p class="text-sage-600 mt-2 max-w-lg mx-auto">Everytime I listen to these songs, I just end up thinking of you and fall in love all over again.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="song-cards-container">
+
+            <!-- Song 1 -->
+         <div class="bg-white rounded-2xl p-6 border border-sage-200 shadow-sm hover:shadow-md transition-all flex items-center gap-5 group">
+             <div class="w-16 h-16 rounded-xl bg-sage-100 flex items-center justify-center text-sage-700 font-bold text-xl shrink-0 group-hover:bg-sage-600 group-hover:text-white transition-colors relative overflow-hidden">
+                    <span class="absolute top-1 right-2 text-xs opacity-40">#1</span>
+                    <i class="fa-solid fa-music"></i>
+             </div>
+             <div class="flex-1 min-w-0">
+                    <h3 class="font-serif font-bold text-lg text-sage-900 truncate">Thinking Out Loud</h3>
+                 <p class="text-xs text-sage-500 font-medium mb-1">Ed Sheeran • Loving you through every season</p>
+                  <p class="text-xs text-sage-700 italic">A reminder that I want to keep choosing you, loving you, and growing old with you.</p>
+             </div>
+              <button onclick="playSongStub('Thinking Out Loud', 'Ed Sheeran', this)" class="w-12 h-12 rounded-full bg-sage-100 hover:bg-sage-600 hover:text-white text-sage-700 flex items-center justify-center transition-all shrink-0">
+                   <i class="fa-solid fa-play ml-0.5"></i>
+              </button>
+          </div>
+
+    <!-- Song 2 -->
+            <div class="bg-white rounded-2xl p-6 border border-sage-200 shadow-sm hover:shadow-md transition-all flex items-center gap-5 group">
+              <div class="w-16 h-16 rounded-xl bg-sage-100 flex items-center justify-center text-sage-700 font-bold text-xl shrink-0 group-hover:bg-sage-600 group-hover:text-white transition-colors relative overflow-hidden">
+                 <span class="absolute top-1 right-2 text-xs opacity-40">#2</span>
+                  <i class="fa-solid fa-music"></i>
+             </div>
+               <div class="flex-1 min-w-0">
+                 <h3 class="font-serif font-bold text-lg text-sage-900 truncate">Photograph</h3>
+                  <p class="text-xs text-sage-500 font-medium mb-1">Ed Sheeran • Keeping our memories close</p>
+                  <p class="text-xs text-sage-700 italic">For all the little moments, memories, and pictures I'll always treasure with you.</p>
+               </div>
+             <button onclick="playSongStub('Photograph', 'Ed Sheeran', this)" class="w-12 h-12 rounded-full bg-sage-100 hover:bg-sage-600 hover:text-white text-sage-700 flex items-center justify-center transition-all shrink-0">
+                 <i class="fa-solid fa-play ml-0.5"></i>
+             </button>
+           </div>
+
+         <!-- Song 3 -->
+            <div class="bg-white rounded-2xl p-6 border border-sage-200 shadow-sm hover:shadow-md transition-all flex items-center gap-5 group">
+             <div class="w-16 h-16 rounded-xl bg-sage-100 flex items-center justify-center text-sage-700 font-bold text-xl shrink-0 group-hover:bg-sage-600 group-hover:text-white transition-colors relative overflow-hidden">
+                   <span class="absolute top-1 right-2 text-xs opacity-40">#3</span>
+                    <i class="fa-solid fa-music"></i>
+             </div>
+                <div class="flex-1 min-w-0">
+                    <h3 class="font-serif font-bold text-lg text-sage-900 truncate">ILYM</h3>
+                 <p class="text-xs text-sage-500 font-medium mb-1">John K. ft. Rosie • Soft, simple, and completely us</p>
+                  <p class="text-xs text-sage-700 italic">The kind of song that makes me think about how lucky I am to have you.</p>
+                </div>
+             <button onclick="playSongStub('ILYM', 'John K. ft. ROSIE', this)" class="w-12 h-12 rounded-full bg-sage-100 hover:bg-sage-600 hover:text-white text-sage-700 flex items-center justify-center transition-all shrink-0">
+                 <i class="fa-solid fa-play ml-0.5"></i>
+               </button>
+           </div>
+
+            <!-- Song 4 -->
+            <div class="bg-white rounded-2xl p-6 border border-sage-200 shadow-sm hover:shadow-md transition-all flex items-center gap-5 group">
+                <div class="w-16 h-16 rounded-xl bg-sage-100 flex items-center justify-center text-sage-700 font-bold text-xl shrink-0 group-hover:bg-sage-600 group-hover:text-white transition-colors relative overflow-hidden">
+                    <span class="absolute top-1 right-2 text-xs opacity-40">#4</span>
+                    <i class="fa-solid fa-music"></i>
+                </div>
+                <div class="flex-1 min-w-0">
+                    <h3 class="font-serif font-bold text-lg text-sage-900 truncate">This Is How You Fall in Love</h3>
+                    <p class="text-xs text-sage-500 font-medium mb-1">Jeremy Zucker & Chelsea Cutler • Falling in love feels like home</p>
+                    <p class="text-xs text-sage-700 italic">A little reminder of the quiet, genuine kind of love I feel whenever I'm with you.</p>
+                </div>
+                <button onclick="playSongStub('This Is How You Fall in Love', 'Jeremy Zucker & Chelsea Cutler', this)" class="w-12 h-12 rounded-full bg-sage-100 hover:bg-sage-600 hover:text-white text-sage-700 flex items-center justify-center transition-all shrink-0">
+                    <i class="fa-solid fa-play ml-0.5"></i>
+                </button>
+            </div>
+
+            <!-- Song 5 -->
+            <div class="bg-white rounded-2xl p-6 border border-sage-200 shadow-sm hover:shadow-md transition-all flex items-center gap-5 group md:col-span-2 max-w-xl mx-auto w-full">
+                <div class="w-16 h-16 rounded-xl bg-sage-100 flex items-center justify-center text-sage-700 font-bold text-xl shrink-0 group-hover:bg-sage-600 group-hover:text-white transition-colors relative overflow-hidden">
+                    <span class="absolute top-1 right-2 text-xs opacity-40">#5</span>
+                    <i class="fa-solid fa-music"></i>
+                </div>
+                <div class="flex-1 min-w-0">
+                    <h3 class="font-serif font-bold text-lg text-sage-900 truncate">Out of My League</h3>
+                    <p class="text-xs text-sage-500 font-medium mb-1">Stephen Speaks • Still can't believe you're mine</p>
+                    <p class="text-xs text-sage-700 italic">Because sometimes I look at you and still wonder how I got someone as amazing as you.</p>
+                </div>
+                <button onclick="playSongStub('Out of My League', 'Stephen Speaks', this)" class="w-12 h-12 rounded-full bg-sage-100 hover:bg-sage-600 hover:text-white text-sage-700 flex items-center justify-center transition-all shrink-0">
+                    <i class="fa-solid fa-play ml-0.5"></i>
+                </button>
+            </div>
+
+        </div>
+
+        <!-- Now Playing: YouTube player -->
+        <div id="music-player-notice" class="hidden mt-8 bg-sage-800 text-white p-4 rounded-2xl shadow-lg max-w-2xl mx-auto">
+            <div class="flex items-center justify-between gap-4 mb-3">
+                <div class="flex items-center gap-3 min-w-0">
+                    <div class="w-10 h-10 rounded-full bg-sunflower text-sage-900 flex items-center justify-center shrink-0">
+                        <i class="fa-solid fa-compact-disc"></i>
+                    </div>
+                    <div class="min-w-0">
+                        <div class="text-xs text-sage-300 font-medium">Now Playing</div>
+                        <div id="active-song-title" class="font-bold text-sm truncate">Song Title</div>
+                    </div>
+                </div>
+                <button onclick="stopSong()" class="w-9 h-9 rounded-full bg-sage-700 hover:bg-sage-600 flex items-center justify-center shrink-0" aria-label="Stop music">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <div class="aspect-video rounded-xl overflow-hidden bg-black">
+                <iframe
+                    id="music-player-frame"
+                    class="w-full h-full"
+                    src="about:blank"
+                    title="Music player"
+                    allow="autoplay; encrypted-media; picture-in-picture"
+                    allowfullscreen>
+                </iframe>
+            </div>
+            <p class="text-[11px] text-sage-300 mt-2 text-center">Music is played through YouTube. Your browser may ask you to allow playback.</p>
+        </div>
+
+
+    <!-- Section 2: Favorite Memories (Roblox Matching Avatars & Video Calls) -->
+    <section id="memories" class="py-20 bg-sage-100/70 border-y border-sage-200 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <span class="text-sunflower-dark text-xl">📸</span>
+                <h2 class="font-serif text-3xl sm:text-4xl font-bold text-sage-900 mt-2">Favorite Memories</h2>
+                <p class="text-sage-600 mt-2 max-w-xl mx-auto">From our matching Roblox avatars exploring virtual worlds to sweet video call snapshots when we're apart.</p>
+            </div>
+
+            <!-- Filter tabs -->
+            <div class="flex justify-center gap-3 mb-12 flex-wrap">
+                <button onclick="filterMemories('all')" id="filter-all" class="px-5 py-2 rounded-full text-sm font-medium bg-sage-700 text-white shadow-sm transition-all">All Memories</button>
+                <button onclick="filterMemories('roblox')" id="filter-roblox" class="px-5 py-2 rounded-full text-sm font-medium bg-white text-sage-700 hover:bg-sage-200 border border-sage-300 transition-all">🎮 Roblox & Matching Avatars</button>
+                <button onclick="filterMemories('videocall')" id="filter-videocall" class="px-5 py-2 rounded-full text-sm font-medium bg-white text-sage-700 hover:bg-sage-200 border border-sage-300 transition-all">📸 Photos of You</button>
+            </div>
+
+            <!-- Polaroid Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8" id="polaroids-grid">
+                
+                <!-- Memory 1: Roblox -->
+                <div class="polaroid bg-white p-4 pb-6 rounded-lg shadow-md border border-sage-200 group cursor-pointer" data-category="roblox" onclick="openLightbox(this)">
+                    <div class="aspect-square bg-sage-100 rounded overflow-hidden relative mb-4">
+                        <img src="matching-avatars.png" onerror="this.src='https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=600&q=80'" alt="Roblox Matching Avatars" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute top-3 right-3 bg-sage-900/70 backdrop-blur-sm text-sunflower text-xs px-2.5 py-1 rounded-full font-medium">
+                            <i class="fa-solid fa-gamepad mr-1"></i> Roblox
+                        </div>
+                    </div>
+                    <h3 class="font-serif font-bold text-sage-900 text-lg mb-1">Matching Roblox Avatars!</h3>
+                    <p class="text-xs text-sage-600">One of my favorite matching avatars hehe :)</p>
+                </div>
+
+                <!-- Memory 2: Video Call -->
+                <div class="polaroid bg-white p-4 pb-6 rounded-lg shadow-md border border-sage-200 group cursor-pointer" data-category="videocall" data-full-ratio="true" onclick="openLightbox(this)">
+                    <div class="aspect-square bg-sage-100 rounded overflow-hidden relative mb-4">
+                        <img src="memory-2.png" onerror="this.src='https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=600&q=80'" alt="Video Call" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute top-3 right-3 bg-sage-900/70 backdrop-blur-sm text-sunflower text-xs px-2.5 py-1 rounded-full font-medium">
+                            <i class="fa-solid fa-video mr-1"></i> Video Call
+                        </div>
+                    </div>
+                    <h3 class="font-serif font-bold text-sage-900 text-lg mb-1">Late Night Smiles</h3>
+                    <p class="text-xs text-sage-600">My cute baby smiling at me after getting flustered</p>
+                </div>
+
+                <!-- Memory 3: Roblox -->
+                <div class="polaroid bg-white p-4 pb-6 rounded-lg shadow-md border border-sage-200 group cursor-pointer" data-category="roblox" onclick="openLightbox(this)">
+                    <div class="aspect-square bg-sage-100 rounded overflow-hidden relative mb-4">
+                        <img src="memory-3.png" onerror="this.src='https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=600&q=80'" alt="Roblox Adventure" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute top-3 right-3 bg-sage-900/70 backdrop-blur-sm text-sunflower text-xs px-2.5 py-1 rounded-full font-medium">
+                            <i class="fa-solid fa-gamepad mr-1"></i> Roblox
+                        </div>
+                    </div>
+                    <h3 class="font-serif font-bold text-lg text-sage-900 truncate">Gakurannnn</h3>
+                    <p class="text-xs text-sage-600">Tall, Masc, Bottom x Short, Femme, Top hahaha</p>
+                </div>
+
+                <!-- Memory 4: Annoyed Face -->
+                <div class="polaroid bg-white p-4 pb-6 rounded-lg shadow-md border border-sage-200 group cursor-pointer" data-category="videocall" data-full-ratio="true" onclick="openLightbox(this)">
+                    <div class="aspect-square bg-sage-100 rounded overflow-hidden relative mb-4">
+                        <img src="memory-4.png" alt="Her annoyed face" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute top-3 right-3 bg-sage-900/70 backdrop-blur-sm text-sunflower text-xs px-2.5 py-1 rounded-full font-medium">
+                            <i class="fa-solid fa-camera mr-1"></i> Video Call
+                        </div>
+                    </div>
+                    <h3 class="font-serif font-bold text-sage-900 text-lg mb-1">That Annoyed Face</h3>
+                    <p class="text-xs text-sage-600">Your annoyed face during one of our video calls hehe so cuteeee</p>
+                </div>
+
+                <!-- Memory 5: Favorite Game Screenshot -->
+                <div class="polaroid bg-white p-4 pb-6 rounded-lg shadow-md border border-sage-200 group cursor-pointer" data-category="roblox" onclick="openLightbox(this)">
+                    <div class="aspect-square bg-sage-100 rounded overflow-hidden relative mb-4">
+                        <img src="memory-5.png" alt="Favorite game screenshot" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute top-3 right-3 bg-sage-900/70 backdrop-blur-sm text-sunflower text-xs px-2.5 py-1 rounded-full font-medium">
+                            <i class="fa-solid fa-gamepad mr-1"></i> Roblox
+                        </div>
+                    </div>
+                    <h3 class="font-serif font-bold text-sage-900 text-lg mb-1">My Favorite Screenshot of Us</h3>
+                    <p class="text-xs text-sage-600">One of my favorite screenshots from the game where we first met</p>
+                </div>
+
+                   <!-- Memory 6: Favorite Photo -->
+                <div class="polaroid bg-white p-4 pb-6 rounded-lg shadow-md border border-sage-200 group cursor-pointer" data-category="videocall" data-full-ratio="true" onclick="openLightbox(this)">
+                    <div class="aspect-square bg-sage-100 rounded overflow-hidden relative mb-4">
+                        <img src="memory-6.jpg" alt="Favorite Photo" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute top-3 right-3 bg-sage-900/70 backdrop-blur-sm text-sunflower text-xs px-2.5 py-1 rounded-full font-medium">
+                            <i class="fa-solid fa-video mr-1"></i> Photos
+                        </div>
+                    </div>
+                    <h3 class="font-serif font-bold text-sage-900 text-lg mb-1">My Favorite Photo</h3>
+                    <p class="text-xs text-sage-600">Favorite photo you sent me :)</p>
+                </div>
+
+            </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: 20 Messages for Your 20th Birthday -->
+    <section id="messages" class="py-20 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
+        <div class="text-center mb-16">
+            <span class="text-sunflower-dark text-xl">🌻</span>
+            <h2 class="font-serif text-3xl sm:text-5xl font-bold text-sage-900 mt-2">20 Messages for Your 20th Birthday</h2>
+            <p class="text-sage-600 mt-3 max-w-xl mx-auto font-light text-base sm:text-lg">Click each card below to open a special birthday note written straight from my heart to yours.</p>
+            
+            <div class="mt-6 flex items-center justify-center gap-4">
+                <div class="bg-sage-100 text-sage-800 px-4 py-1.5 rounded-full text-xs font-semibold">
+                    <span id="opened-count">0</span> / 20 Messages Unlocked
+                </div>
+                <button onclick="unlockAllMessages()" class="text-xs bg-sunflower text-sage-900 font-semibold px-4 py-1.5 rounded-full hover:bg-sunflower-dark hover:text-white transition-all shadow-sm">
+                    ✨ Open All At Once
+                </button>
+            </div>
+        </div>
+
+        <!-- 20 Envelope Cards Grid -->
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 sm:gap-6" id="messages-grid">
+            <!-- Dynamically populated via JS for clean 1-20 generation -->
+        </div>
+    </section>
+
+    <!-- Lightbox Modal for Memories -->
+    <div id="lightbox" class="fixed inset-0 z-50 bg-sage-950/80 backdrop-blur-md hidden flex items-center justify-center p-4" onclick="closeLightbox()">
+        <div class="bg-white rounded-2xl max-w-lg w-full p-6 relative shadow-2xl border border-sage-200" onclick="event.stopPropagation()">
+            <button onclick="closeLightbox()" class="absolute top-4 right-4 w-10 h-10 rounded-full bg-sage-100 hover:bg-sage-200 text-sage-800 flex items-center justify-center transition-all">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+            <div id="lightbox-content" class="text-center">
+                <img id="lightbox-img" src="" alt="Memory" class="w-full h-72 object-cover rounded-xl mb-4 shadow-md">
+                <h3 id="lightbox-title" class="font-serif font-bold text-2xl text-sage-900 mb-2">Title</h3>
+                <p id="lightbox-desc" class="text-sage-600 text-sm leading-relaxed">Description</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Message Modal for Birthday Notes -->
+    <div id="message-modal" class="fixed inset-0 z-50 bg-sage-950/80 backdrop-blur-md hidden flex items-center justify-center p-4" onclick="closeMessageModal()">
+        <div class="bg-white rounded-3xl max-w-md w-full p-8 relative shadow-2xl border-2 border-sunflower text-center" onclick="event.stopPropagation()">
+            <div class="absolute -top-6 left-1/2 -translate-x-1/2 w-12 h-12 bg-sunflower rounded-full flex items-center justify-center text-sage-900 text-xl font-bold shadow-md border-2 border-white" id="modal-msg-number">
+                1
+            </div>
+            <button onclick="closeMessageModal()" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-sage-100 hover:bg-sage-200 text-sage-800 flex items-center justify-center transition-all">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="mt-4">
+                <span class="text-sunflower-dark text-2xl">🌻</span>
+                <h3 class="font-serif font-bold text-2xl text-sage-900 mb-3" id="modal-msg-title">Birthday Note</h3>
+                <p class="text-sage-700 text-base leading-relaxed italic mb-6" id="modal-msg-text">Message content goes here...</p>
+                <div class="bg-sage-50 p-3 rounded-xl border border-sage-200 text-xs text-sage-600 flex items-center justify-center gap-2">
+                    <span>Made with endless love for your 20th</span> 🌻
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-sage-900 text-sage-200 py-12 px-4 text-center border-t border-sage-800">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-3xl text-sunflower mb-3">🌻</div>
+            <h3 class="font-serif text-2xl font-bold text-white mb-2">Happy 20th Birthday, Mahal Ko!</h3>
+            <p class="text-sage-400 text-sm max-w-md mx-auto mb-6">I hope you had a great day today. I love you more than words can say.</p>
+            <p class="text-xs text-sage-500">I made it in a green theme and some sunflowers just for you 💚</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript Application Logic -->
+    <script>
+        // Array of 20 heartfelt messages for her 20th birthday
+        const birthdayMessages = [
+            { title: "Note #1", text: "your eyes — i swear i could stare at them forever :(" },
+            { title: "Note #2", text: "your smile — it genuinely makes everything feel better." },
+            { title: "Note #3", text: "your cute little voice 🥹" },
+            { title: "Note #4", text: "your pretty hair — i love your hair even when you try so hard to fix it before we call" },
+            { title: "Note #5", text: "your presence — somehow, just having you around makes everything feel better." },
+            { title: "Note #6", text: "your cute cheeks — i wanna bite them SO BAD 😭" },
+            { title: "Note #7", text: "your sleepy voice — literally one of the cutest things in this entire planet." },
+            { title: "Note #8", text: "your voice when you're excited — i love hearing how happy you sound." },
+            { title: "Note #9", text: "your voice when you're flustered — it's sooooo cute, it makes me wanna tease you more" },
+            { title: "Note #10", text: "your voice when you cry — it makes me wanna hold you and make you feel safe because you're my baby :(" },
+            { title: "Note #11", text: "the way you get shy sometimes — it makes you even more adorable ughhh i love ittttt" },
+            { title: "Note #12", text: "the way you laugh — i love hearing you genuinely laugh, the most beautiful sound ever" },
+            { title: "Note #13", text: "your little expressions — you don't even realize how cute you are sometimes its crazy" },
+            { title: "Note #14", text: "the way you get excited over things you love — i could listen to you talk about them forever" },
+            { title: "Note #15", text: "your softness — there's something about you that makes me want to be gentle with you" },
+            { title: "Note #16", text: "your personality — i love you for being you, not just for how you look, ahhh my babyyyy" },
+            { title: "Note #17", text: "the way you make me feel — being with you makes me so genuinely happy" },
+            { title: "Note #18", text: "the way you make ordinary moments feel special just because you're there" },
+            { title: "Note #19", text: "the way you keep growing and becoming more of yourself — i'm so proud of the person you're becoming, my love" },
+            { title: "Note #20", text: "and most importantly, you — all of you. every little thing about you that i haven't even mentioned here. i could probably write 200 more and still wouldn't be able to put into words how much i love you, winda" }
+        ];
+
+        let openedMessages = new Set();
+
+        // Initialize floating sunflower petals / leaves
+        function createFloatingElements() {
+            const container = document.getElementById('floating-container');
+            const icons = ['🌻', '🍃', '✨', '🌿', '💛'];
+            const count = 15;
+
+            for (let i = 0; i < count; i++) {
+                const el = document.createElement('div');
+                el.className = 'floating-element';
+                el.innerHTML = icons[Math.floor(Math.random() * icons.length)];
+                el.style.left = Math.random() * 100 + 'vw';
+                el.style.fontSize = (Math.random() * 14 + 12) + 'px';
+                el.style.animationDuration = (Math.random() * 10 + 8) + 's';
+                el.style.animationDelay = (Math.random() * 5) + 's';
+                container.appendChild(el);
+            }
+        }
+
+        // Render 20 message cards
+        function renderMessagesGrid() {
+            const grid = document.getElementById('messages-grid');
+            grid.innerHTML = '';
+
+            birthdayMessages.forEach((msg, index) => {
+                const num = index + 1;
+                const isOpened = openedMessages.has(num);
+
+                const card = document.createElement('div');
+                card.className = `cursor-pointer rounded-2xl p-6 text-center transition-all duration-300 border flex flex-col items-center justify-center aspect-square shadow-sm hover:shadow-lg hover:-translate-y-1 ${
+                    isOpened 
+                        ? 'bg-sage-50 border-sage-300 text-sage-800' 
+                        : 'bg-white border-sage-200 text-sage-900 hover:border-sunflower'
+                }`;
+                
+                card.onclick = () => openMessage(num);
+
+                card.innerHTML = `
+                    <div class="w-12 h-12 rounded-full ${isOpened ? 'bg-sage-200 text-sage-700' : 'bg-sunflower-light text-sunflower-dark'} flex items-center justify-center text-lg font-bold mb-3 shadow-sm">
+                        ${isOpened ? '<i class="fa-solid fa-envelope-open"></i>' : num}
+                    </div>
+                    <h4 class="font-serif font-bold text-base mb-1">Note #${num}</h4>
+                    <p class="text-xs ${isOpened ? 'text-sage-600' : 'text-sage-500'} font-medium">
+                        ${isOpened ? 'Opened 🌻' : 'Click to Open'}
+                    </p>
+                `;
+                grid.appendChild(card);
+            });
+
+            document.getElementById('opened-count').innerText = openedMessages.size;
+        }
+
+        // Open specific message modal
+        function openMessage(num) {
+            openedMessages.add(num);
+            renderMessagesGrid();
+
+            const msg = birthdayMessages[num - 1];
+            document.getElementById('modal-msg-number').innerText = num;
+            document.getElementById('modal-msg-title').innerText = `Message #${num} for Your 20th`;
+            document.getElementById('modal-msg-text').innerText = msg.text;
+            document.getElementById('message-modal').classList.remove('hidden');
+        }
+
+        function closeMessageModal() {
+            document.getElementById('message-modal').classList.add('hidden');
+        }
+
+        function unlockAllMessages() {
+            for (let i = 1; i <= 20; i++) {
+                openedMessages.add(i);
+            }
+            renderMessagesGrid();
+        }
+
+        // Filter memories
+        function filterMemories(category) {
+            const cards = document.querySelectorAll('#polaroids-grid > div');
+            const allBtn = document.getElementById('filter-all');
+            const robloxBtn = document.getElementById('filter-roblox');
+            const vcBtn = document.getElementById('filter-videocall');
+
+            // Reset button styles
+            [allBtn, robloxBtn, vcBtn].forEach(btn => {
+                btn.className = "px-5 py-2 rounded-full text-sm font-medium bg-white text-sage-700 hover:bg-sage-200 border border-sage-300 transition-all";
+            });
+
+            if (category === 'all') {
+                allBtn.className = "px-5 py-2 rounded-full text-sm font-medium bg-sage-700 text-white shadow-sm transition-all";
+            } else if (category === 'roblox') {
+                robloxBtn.className = "px-5 py-2 rounded-full text-sm font-medium bg-sage-700 text-white shadow-sm transition-all";
+            } else if (category === 'videocall') {
+                vcBtn.className = "px-5 py-2 rounded-full text-sm font-medium bg-sage-700 text-white shadow-sm transition-all";
+            }
+
+            cards.forEach(card => {
+                if (category === 'all' || card.dataset.category === category) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Lightbox functions
+        function openLightbox(cardElement) {
+            const img = cardElement.querySelector('img').src;
+            const title = cardElement.querySelector('h3').innerText;
+            const desc = cardElement.querySelector('p').innerText;
+
+            const lightboxImg = document.getElementById('lightbox-img');
+            lightboxImg.src = img;
+
+            // Keep the Late Night Smiles photo at its original portrait ratio
+            // instead of forcing it into the 1:1/cropped preview shape.
+            if (cardElement.dataset.fullRatio === 'true') {
+                lightboxImg.className = 'max-w-full max-h-[75vh] w-auto h-auto object-contain rounded-xl mb-4 shadow-md mx-auto';
+            } else {
+                lightboxImg.className = 'w-full h-72 object-cover rounded-xl mb-4 shadow-md';
+            }
+
+            document.getElementById('lightbox-title').innerText = title;
+            document.getElementById('lightbox-desc').innerText = desc;
+            document.getElementById('lightbox').classList.remove('hidden');
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.add('hidden');
+        }
+
+        // Play a real song using YouTube's embedded player.
+        // The search embed finds the matching song without requiring you to
+        // ship copyrighted audio files inside this birthday website.
+        function playSongStub(title, artist, btnElement) {
+            const notice = document.getElementById('music-player-notice');
+            const frame = document.getElementById('music-player-frame');
+            const query = encodeURIComponent(title + ' ' + artist);
+
+            document.getElementById('active-song-title').innerText = title + ' — ' + artist;
+            notice.classList.remove('hidden');
+
+            // Reset other buttons
+            document.querySelectorAll('#song-cards-container button').forEach(b => {
+                b.innerHTML = '<i class="fa-solid fa-play ml-0.5"></i>';
+                b.classList.remove('bg-sunflower', 'text-sage-900');
+                b.classList.add('bg-sage-100', 'text-sage-700');
+            });
+
+            btnElement.innerHTML = '<i class="fa-solid fa-pause"></i>';
+            btnElement.classList.remove('bg-sage-100', 'text-sage-700');
+            btnElement.classList.add('bg-sunflower', 'text-sage-900');
+
+            // Because this navigation happens directly from the user's click,
+            // YouTube can start playback without relying on page-load autoplay.
+            frame.src = 'https://www.youtube.com/embed?listType=search&list=' + query + '&autoplay=1&rel=0';
+
+            notice.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
+        function stopSong() {
+            const frame = document.getElementById('music-player-frame');
+            frame.src = 'about:blank';
+            document.getElementById('music-player-notice').classList.add('hidden');
+
+            document.querySelectorAll('#song-cards-container button').forEach(b => {
+                b.innerHTML = '<i class="fa-solid fa-play ml-0.5"></i>';
+                b.classList.remove('bg-sunflower', 'text-sage-900');
+                b.classList.add('bg-sage-100', 'text-sage-700');
+            });
+        }
+
+        // Initialize on load
+        window.onload = function() {
+            createFloatingElements();
+            renderMessagesGrid();
+        };
+    </script>
+</body>
+</html>
