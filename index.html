@@ -274,7 +274,7 @@
                     allowfullscreen>
                 </iframe>
             </div>
-            <p class="text-[11px] text-sage-300 mt-2 text-center">Music is played through YouTube. Your browser may ask you to allow playback.</p>
+            <div class="flex items-center justify-center gap-3 mt-2 text-[11px] text-sage-300"><span>Music is played through YouTube.</span><a id="youtube-fallback-link" href="#" target="_blank" rel="noopener noreferrer" class="underline hover:text-white">Open on YouTube</a></div>
         </div>
 
 
@@ -599,13 +599,24 @@
             document.getElementById('lightbox').classList.add('hidden');
         }
 
-        // Play a real song using YouTube's embedded player.
-        // The search embed finds the matching song without requiring you to
-        // ship copyrighted audio files inside this birthday website.
+        // Play a specific YouTube video. Using fixed video IDs is more reliable
+        // on mobile than YouTube's old embedded search-list mode.
+        const youtubeSongs = {
+            'Thinking Out Loud|Ed Sheeran': 'WpyfrixXBqU',
+            'Photograph|Ed Sheeran': 'nSDgHBxUbVQ',
+            'ILYM|John K. ft. ROSIE': 'Wa8mzie7eOc',
+            'This Is How You Fall in Love|Jeremy Zucker & Chelsea Cutler': '6qkgVgjN188',
+            'Out of My League|Stephen Speaks': 'QmWhn9e1Ujc'
+        };
+
         function playSongStub(title, artist, btnElement) {
             const notice = document.getElementById('music-player-notice');
             const frame = document.getElementById('music-player-frame');
-            const query = encodeURIComponent(title + ' ' + artist);
+            const key = title + '|' + artist;
+            const videoId = youtubeSongs[key];
+            const youtubeUrl = videoId
+                ? 'https://www.youtube.com/watch?v=' + videoId
+                : 'https://www.youtube.com/results?search_query=' + encodeURIComponent(title + ' ' + artist);
 
             document.getElementById('active-song-title').innerText = title + ' — ' + artist;
             notice.classList.remove('hidden');
@@ -621,9 +632,17 @@
             btnElement.classList.remove('bg-sage-100', 'text-sage-700');
             btnElement.classList.add('bg-sunflower', 'text-sage-900');
 
-            // Because this navigation happens directly from the user's click,
-            // YouTube can start playback without relying on page-load autoplay.
-            frame.src = 'https://www.youtube.com/embed?listType=search&list=' + query + '&autoplay=1&rel=0';
+            // playsinline helps iPhone/iPad keep playback inside the page.
+            // Some mobile browsers block autoplay with sound; in that case the
+            // YouTube player appears normally and the user can tap its play button.
+            if (videoId) {
+                frame.src = 'https://www.youtube.com/embed/' + videoId + '?autoplay=1&rel=0&playsinline=1&modestbranding=1';
+            } else {
+                frame.src = 'about:blank';
+            }
+
+            const fallback = document.getElementById('youtube-fallback-link');
+            fallback.href = youtubeUrl;
 
             notice.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         }
